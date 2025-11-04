@@ -1,0 +1,1 @@
+A functional library written in C++ to explore category theory and functional programming.
