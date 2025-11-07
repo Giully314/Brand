@@ -7,13 +7,16 @@ export module brand.core.function;
 
 import std;
 
+import brand.core.concepts;
+
 export namespace brand::core {
 
 // Add concepts. 
-// template <typename F, typename G>
-auto compose(auto f, auto g) {
-    return [f, g](auto x) {
-        return f(g(x));
+template <typename F, typename G>
+    requires valid_composition<F, G>
+auto compose(F f, G g) {
+    return [f, g](auto&& x) {
+        return f(g(std::forward<decltype(x)>(x)));
     };
 }
 
