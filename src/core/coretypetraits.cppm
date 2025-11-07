@@ -6,7 +6,7 @@ import brand.core.mpl;
 
 import std;
 
-namespace brand::core {
+export namespace brand::core {
     template <typename F, typename ArgList> 
     struct is_callable : std::false_type {};
 
